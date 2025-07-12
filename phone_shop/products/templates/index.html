@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung - Главный сайт по продаже смартфонов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Навигация -->
+    <nav class="bg-blue-900 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Samsung Store</h1>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="hover:text-blue-300">Главная</a></li>
+                <li><a href="#phones" class="hover:text-blue-300">Телефоны</a></li>
+                <li><a href="#tablets" class="hover:text-blue-300">Планшеты</a></li>
+                <li><a href="#ambassadors" class="hover:text-blue-300">Амбассадоры</a></li>
+                <li><a href="#partners" class="hover:text-blue-300">Партнеры</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Геройская секция -->
+    <section id="home" class="bg-blue-800 text-white py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Добро пожаловать в Samsung Store</h2>
+            <p class="text-lg mb-6">Откройте для себя новейшие смартфоны и планшеты Samsung с передовыми технологиями!</p>
+            <a href="#phones" class="bg-yellow-500 text-black px-6 py-3 rounded-full hover:bg-yellow-600">Посмотреть новинки</a>
+        </div>
+    </section>
+
+    <!-- Поддерживающие бренды -->
+    <section id="partners" class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Нас поддерживают</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {% for i in our%}
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="{{i.image.url}}" alt="Google" class="mx-auto">
+                    <p class="mt-2">{{i.name}}</p>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Амбассадоры -->
+    <section id="ambassadors" class="bg-gray-200 py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Наши амбассадоры</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for i in ambassadores %}
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <img src="{{i.image.url}}" alt="Иван Иванов" class="mx-auto rounded-full">
+                    <h3 class="text-xl font-semibold mt-4">{{i.name}}</h3>
+                    <p class="text-gray-600">{{i.description}}</p>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Телефоны -->
+    <section id="phones" class="py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">Смартфоны Samsung</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% for i in phones %} 
+
+                <div class="bg-white p-6 rounded-lg shadow text-center">
+                    <img src="{{i.image.url}}" alt="Galaxy S25 Ultra" class="mx-auto">
+                    <h3 class="text-xl font-semibold mt-4">{{i.name}}</h3>
+                    <p class="text-gray-600">{{i.description}}</p>
+                    <p class="text-lg font-bold mt-2">{{i.price}}</p>
+                </div>
+            {% endfor %}
+            </div>
+            
+        </div>
+    </section>
+
+        <section id="phones" class="py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">Планшеты самсунг</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% for i in tab %} 
+
+                <div class="bg-white p-6 rounded-lg shadow text-center">
+                    {% if i.image %}
+                    <img src="{{i.image.url}}" alt="Galaxy S25 Ultra" class="mx-auto">
+                    {% endif %}
+                    <h3 class="text-xl font-semibold mt-4">{{i.name}}</h3>
+                    <p class="text-gray-600">{{i.description}}</p>
+                    <p class="text-lg font-bold mt-2">{{i.price}}</p>
+                </div>
+            {% endfor %}
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>© 2025 Samsung Store. Все права защищены.</p>
+            <p class="mt-2">Свяжитесь с нами: support@samsungstore.com</p>
+        </div>
+    </footer>
+</body>
+</html>
